@@ -2,17 +2,13 @@ import axios from 'axios';
 
 
 const api = axios.create({
-  baseURL: 'http://0.0.0.0:8000',
+  baseURL: 'http://localhost:8000',
 });
 
-export const authService = {
-
-  login: async (email, password) => {
+export const sheduleService = {
+  getShedule: async () => {
     try {
-      const response = await api.post('/auth/login', {
-        email,
-        password
-      });
+      const response = await api.get('/guest/shedule');
       return response.data;
     } 
     catch (error) {

@@ -1,68 +1,140 @@
-.menu-card {
-    background: #ffffff;
-    padding: 1.5rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #b8d8f8;
-    cursor: pointer;
-  }
-  
-  .menu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  .menu-image {
-    height: 200px;
-    background-color: #f5f5f5;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .menu-card:hover .menu-image {
-    transform: scale(1.05);
-  }
-  
-  .price {
-    font-weight: bold;
-    color: #bc4749;
-    margin: 1rem 0;
-  }
-  
-  .btn {
-    padding: 1.1em 2.5em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #333;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    outline: none;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .btn:hover {
-    transform: translateY(-7px);
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .btn.primary {
-    background-color: #7ab5e6;
-    color: white;
-  }
-  
-  .btn.primary:hover {
-    background-color: #23c483;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    transform: translateY(-7px);
-  }
+.products-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 1200px;
+}
+
+.menu-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.section-title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.dish-card {
+  width: 300px;
+  min-height: 400px;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #b8d8f8;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.menu-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dish-card:hover .menu-image {
+  transform: scale(1.05);
+}
+
+.dish-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dish-description {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  font-weight: bold;
+  color: #bc4749;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.btn {
+  padding: 0.8em 1.5em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #333;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-7px);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn.primary {
+  background-color: #7ab5e6;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  transform: translateY(-7px);
+}
+
+.menu-section {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 1rem;
+}
+
+.menu-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}

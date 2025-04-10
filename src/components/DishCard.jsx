@@ -1,15 +1,18 @@
+import React from 'react';
 import '../styles/DishCard.css';
 
 const DishCard = ({ product }) => {
   return (
-    <div className="menu-card">
-      <div
+    <div className="dish-card">
+      <img 
+        src={product.image} 
+        alt={product.name} 
         className="menu-image"
-        style={{ backgroundImage: `url(${product.image})` }}
-      ></div>
-      <h3>{product.name}</h3>
-      <p>{product.description}</p>
-      <p className="price">{product.price} ₽</p>
+      />
+      <h3 className="dish-title">{product.name}</h3>
+      <p className="dish-description">{product.description}</p>
+      <div className="price">{product.price} ₽</div>
+      <button className="btn primary">Подробнее</button>
     </div>
   );
 };
