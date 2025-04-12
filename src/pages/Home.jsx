@@ -1,12 +1,23 @@
 import { useState, useEffect } from 'react';
 import '../styles/DishCard.css';
+import '../styles/Schedule.css';
+import '../styles/Home.css';
 import DishCard from '../components/DishCard.jsx'
-import Header from '../components/Header.jsx';
+import Schedule from '../components/Schedule.jsx';
 import { menuService } from '../services/menuService';
+import { sheduleService } from '../services/sheduleService';
+
+const categoryTranslations = {
+  breakfast: 'Завтраки',
+  lunch: 'Обеды',
+  dinner: 'Ужины'
+};
 
 const Home = () => { 
   const [products, setProducts] = useState({});
+  const [schedule, setSchedule] = useState({});
   const [loading, setLoading] = useState(true);
+  const [scheduleLoading, setScheduleLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -25,59 +36,66 @@ const Home = () => {
       }
     }
     
+    async function fetchShedule() {
+      try {
+        const data = await sheduleService.getShedule();
+        console.log('Расписание пришло:', data.schedule);
+        if (data.schedule) {
+          setSchedule(data.schedule);
+        }
+        setScheduleLoading(false);
+      } catch (err) {
+        console.error('Ошибка при получении расписания:', err);
+        setError('Не удалось загрузить расписание');
+        setScheduleLoading(false);
+      }
+    }
+    
     fetchMenu();
+    fetchShedule();
   }, []);
 
+  if (loading || scheduleLoading) {
+    return <div>Загрузка...</div>;
+  }
+
   if (error) {
-    return (
-      <>
-        <Header />
-        <div>{error}</div>
-      </>
-    );
+    return <div>{error}</div>;
   }
 
   return (
-    <>
-      <Header />
-      <div className="products-container">
-        <h1 className="menu-title">Меню на сегодня</h1>
-        
-        {products.breakfast && (
-          <div className="menu-section">
-            
-            <div className="section-container">
-            <h2 className="section-title">Завтрак</h2>
-              {products.breakfast.map((product) => (
-                <DishCard key={product.id} product={product} />
-              ))}
+    <div>
+      <div id="menu">
+        <h2>Меню</h2>
+        <div className="menu-categories">
+          {Object.entries(products).map(([category, items]) => (
+            <div key={category} className="menu-section">
+              <h3>{categoryTranslations[category] || category}</h3>
+              <div className="dish-grid">
+                {items.map((item) => (
+                  <DishCard key={item.id} product={item} />
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-        
-        {products.lunch && (
-          <div className="menu-section">
-            <h2 className="section-title">Обед</h2>
-            <div className="section-container">
-              {products.lunch.map((product) => (
-                <DishCard key={product.id} product={product} />
-              ))}
-            </div>
-          </div>
-        )}
-        
-        {products.dinner && (
-          <div className="menu-section">
-            <h2 className="section-title">Ужин</h2>
-            <div className="section-container">
-              {products.dinner.map((product) => (
-                <DishCard key={product.id} product={product} />
-              ))}
-            </div>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
-    </>
+
+      <div id="schedule">
+        <h2>Расписание</h2>
+        <Schedule schedule={schedule} />
+      </div>
+
+      <div id="contacts" className="contacts-container">
+        <h2 className="contacts-title">Контакты</h2>
+        <div className="contacts-content">
+          <p>Адрес: ул. Примерная, д. 123</p>
+          <p>Телефон: +7 (123) 456-78-90</p>
+          <p>Email: example@example.com</p>
+          <p>Часы работы: Пн-Пт 9:00-18:00</p>
+        </div>
+      </div>
+    </div>
   );
 };
 

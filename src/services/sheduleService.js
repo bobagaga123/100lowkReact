@@ -8,11 +8,10 @@ const api = axios.create({
 export const sheduleService = {
   getShedule: async () => {
     try {
-      const response = await api.get('/guest/shedule');
+      const response = await api.get('/guest/schedule');
       return response.data;
-    } 
-    catch (error) {
-      throw error.response?.data?.detail || 'Произошла ошибка при авторизации';
+    } catch (error) {
+      throw error.response?.data || error;
     }
   }
 }; 

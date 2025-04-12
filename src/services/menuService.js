@@ -10,9 +10,8 @@ export const menuService = {
     try {
       const response = await api.get('/guest/menu');
       return response.data;
-    } 
-    catch (error) {
-      throw error.response?.data?.detail || 'Произошла ошибка при авторизации';
+    } catch (error) {
+      throw error.response?.data || error;
     }
   }
 }; 

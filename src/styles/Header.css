@@ -1,105 +1,153 @@
 header {
-    background-color: #f5f7fa;
-    color: #333;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 0 0 30px 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  }
-  
-  header h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    position: relative;
-    display: inline-block;
-    color: #333;
-    text-shadow: none;
-  }
-  
-  header h1 span {
-    color: #3498db;
-    text-shadow: none;
-    position: relative;
-    display: inline-block;
-  }
-  
-  header h1 span::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    background-color: rgba(52, 152, 219, 0.2);
-    bottom: 5px;
-    left: 0;
-    z-index: -1;
-    border-radius: 4px;
-  }
-  
-  nav {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(5px);
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav li {
-    margin: 0 20px;
-    position: relative;
-  }
-  
-  nav li:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 20px;
-    width: 1px;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  nav a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 8px 15px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  
-  nav a:hover {
-    color: #3498db;
-  }
-  
-  nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 50%;
-    background-color: #3498db;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-    border-radius: 3px;
-  }
-  
-  nav a:hover::after {
-    width: 70%;
-  }
-  
+  background-color: #f5f7fa;
+  color: #333;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-shadow: none;
+  text-decoration: none;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  color: #333;
+  text-shadow: none;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.logo-app {
+  color: #3498db;
+  text-shadow: none;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.logo-app::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: rgba(52, 152, 219, 0.2);
+  bottom: 3px;
+  left: 0;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav-links button {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  margin: 0;
+}
+
+.nav-links button:hover {
+  color: #3498db;
+}
+
+.nav-links button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #3498db;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.nav-links button:hover::after {
+  width: 70%;
+}
+
+.header-right {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.auth-button {
+  background: #4169e1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.auth-button.outlined {
+  background: transparent;
+  color: #4169e1;
+  border: 2px solid #4169e1;
+}
+
+.auth-button:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-button.outlined:hover {
+  background: rgba(65, 105, 225, 0.1);
+  color: #1e40af;
+  border-color: #1e40af;
+}

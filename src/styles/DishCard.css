@@ -36,6 +36,14 @@
   padding: 0.5rem 0;
 }
 
+.dish-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
 .dish-card {
   width: 300px;
   min-height: 400px;
@@ -130,8 +138,16 @@
 }
 
 .menu-section {
-  border-top: 2px solid #f0f0f0;
-  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.menu-section h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
 .menu-section:first-child {
