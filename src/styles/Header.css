@@ -5,6 +5,7 @@ header {
   text-align: center;
   border-radius: 0 0 30px 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  user-select: none;
 }
 
 .header-container {
@@ -36,6 +37,7 @@ header {
   padding: 0;
   height: 100%;
   gap: 0.5rem;
+  user-select: none;
 }
 
 .logo-text {
@@ -89,6 +91,7 @@ header {
   cursor: pointer;
   line-height: 1;
   margin: 0;
+  user-select: none;
 }
 
 .nav-links button:hover {
@@ -114,8 +117,18 @@ header {
 
 .header-right {
   display: flex;
-  gap: 0.8rem;
   align-items: center;
+}
+
+.header-right-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row;
+}
+
+.header-right-section:first-child {
+  margin-right: 2rem;
 }
 
 .auth-button {
@@ -132,6 +145,11 @@ header {
   line-height: 1;
   text-decoration: none;
   display: inline-block;
+  user-select: none;
+}
+
+.auth-button[href="/headman"] {
+  margin-right: auto;
 }
 
 .auth-button.outlined {
@@ -150,4 +168,30 @@ header {
   background: rgba(65, 105, 225, 0.1);
   color: #1e40af;
   border-color: #1e40af;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4169e1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.profile-button:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-button svg {
+  width: 20px;
+  height: 20px;
 }

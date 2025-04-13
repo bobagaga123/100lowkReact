@@ -1,0 +1,72 @@
+.headman-panel {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.headman-panel h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.group-choices {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.group-choices h3 {
+  color: #444;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.choices-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #444;
+}
+
+tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status-confirmed {
+  color: #2ecc71;
+  font-weight: 500;
+}
+
+.status-not-confirmed {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.error {
+  color: #e74c3c;
+}
+ 

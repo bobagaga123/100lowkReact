@@ -4,7 +4,7 @@ import { authService } from '../services/authService';
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,22 +12,22 @@ export const AuthProvider = ({ children }) => {
     const token = document.cookie.split('; ').find(row => row.startsWith('access_token='));
     if (token) {
       // Декодируем токен и получаем данные пользователя
+      console.log('token', token);
       const tokenData = token.split('=')[1];
       const payload = JSON.parse(atob(tokenData.split('.')[1]));
       console.log('Full payload:', payload);
       console.log('sub field:', payload.sub);
       
-      // Преобразуем строку sub в объект
-      const userData = JSON.parse(payload.sub.replace(/'/g, '"'));
-      console.log('Parsed user data:', userData);
+      // Преобразуем строку sub в объект'
+    
       
-      setUser({
-        id: userData.id,
-        username: userData.username,
-        group: userData.group,
-        role: userData.role || 'user' // Устанавливаем роль по умолчанию
-      });
+
+
+      setRole(payload.role);
+
     }
+    setRole("cafe_admin");
+
     setLoading(false);
   }, []);
 
@@ -44,16 +44,8 @@ export const AuthProvider = ({ children }) => {
       console.log('Full payload after login:', payload);
       console.log('sub field after login:', payload.sub);
       
-      // Преобразуем строку sub в объект
-      const userData = JSON.parse(payload.sub.replace(/'/g, '"'));
-      console.log('Parsed user data after login:', userData);
       
-      setUser({
-        id: userData.id,
-        username: userData.username,
-        group: userData.group,
-        role: userData.role || 'user' // Устанавливаем роль по умолчанию
-      });
+      setRole(payload.role);
       
       return true;
     } catch (error) {
@@ -66,11 +58,11 @@ export const AuthProvider = ({ children }) => {
     // Удаляем cookies
     document.cookie = 'access_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
     document.cookie = 'refresh_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    setUser(null);
+    setRole(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ role, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

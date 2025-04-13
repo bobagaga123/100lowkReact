@@ -1,0 +1,63 @@
+.meal-confirmation {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.meal-confirmation h3 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.confirm-button,
+.decline-button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.decline-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.confirm-button:hover,
+.decline-button:hover {
+    transform: translateY(-2px);
+}
+
+.confirm-button:disabled,
+.decline-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.status-message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.loading-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+} 

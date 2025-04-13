@@ -16,6 +16,7 @@
   color: #333;
   margin-bottom: 1rem;
   font-weight: bold;
+  user-select: none;
 }
 
 .section-title {
@@ -26,6 +27,7 @@
   color: #333;
   font-weight: bold;
   padding-bottom: 0.5rem;
+  user-select: none;
 }
 
 .section-container {
@@ -84,6 +86,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  user-select: none;
 }
 
 .dish-description {
@@ -94,6 +97,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  user-select: none;
 }
 
 .price {
@@ -101,6 +105,7 @@
   color: #bc4749;
   margin: 1rem 0;
   font-size: 1.2rem;
+  user-select: none;
 }
 
 .btn {
@@ -119,6 +124,7 @@
   outline: none;
   font-family: 'Montserrat', sans-serif;
   width: 100%;
+  user-select: none;
 }
 
 .btn:hover {
@@ -148,6 +154,7 @@
   color: #333;
   margin-bottom: 1.5rem;
   font-weight: bold;
+  user-select: none;
 }
 
 .menu-section:first-child {

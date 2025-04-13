@@ -1,0 +1,65 @@
+.profile-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f5f7fa;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  position: relative;
+  user-select: none;
+}
+
+.profile-container h2::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: #3498db;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  user-select: none;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.field-value {
+  font-weight: 500;
+  color: #333;
+}
+
+.field-value.confirmed {
+  color: #28a745;
+}
+
+.field-value.not-confirmed {
+  color: #dc3545;
+} 

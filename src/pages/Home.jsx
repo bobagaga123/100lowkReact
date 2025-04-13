@@ -4,8 +4,10 @@ import '../styles/Schedule.css';
 import '../styles/Home.css';
 import DishCard from '../components/DishCard.jsx'
 import Schedule from '../components/Schedule.jsx';
+import MealConfirmation from '../components/MealConfirmation.jsx';
 import { menuService } from '../services/menuService';
 import { sheduleService } from '../services/sheduleService';
+import { useAuth } from '../contexts/AuthContext';
 
 const categoryTranslations = {
   breakfast: 'Завтраки',
@@ -19,6 +21,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [scheduleLoading, setScheduleLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { role } = useAuth();
 
   useEffect(() => {
     async function fetchMenu() {
@@ -50,23 +53,26 @@ const Home = () => {
         setScheduleLoading(false);
       }
     }
-    
-    fetchMenu();
-    fetchShedule();
+      
+      // fetchMenu();
+      // fetchShedule();
   }, []);
 
-  if (loading || scheduleLoading) {
-    return <div>Загрузка...</div>;
-  }
+  // if (loading || scheduleLoading) {
+  //   return <div>Загрузка...</div>;
+  // }
 
-  if (error) {
-    return <div>{error}</div>;
-  }
+  // if (error) {
+  //   return <div>{error}</div>;
+  // }
 
   return (
     <div>
+      
+      
       <div id="menu">
         <h2>Меню</h2>
+        {(role === 'student' || role === 'group_head') && <MealConfirmation />}
         <div className="menu-categories">
           {Object.entries(products).map(([category, items]) => (
             <div key={category} className="menu-section">
@@ -82,7 +88,6 @@ const Home = () => {
       </div>
 
       <div id="schedule">
-        <h2>Расписание</h2>
         <Schedule schedule={schedule} />
       </div>
 

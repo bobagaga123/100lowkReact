@@ -1,29 +1,19 @@
 import axios from 'axios';
-
-const api = axios.create({
-  baseURL: 'http://0.0.0.0:8000',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+import { api } from './authService';
 
 export const registerService = {
-  register: async (username, password, group) => {
+  register: async (queryData) => {
     try {
-
-      const response = await api.post('/auth/register', { 
-        username, password, group 
-    });
+      console.log(queryData);
+      const response = await api.post('/auth/register', queryData);
       console.log(response.data);
       return response.data;
-
     } 
     catch (error) {
       console.error('Ошибка авторизации:');
-      console.error('Статус:', error.response?.status);
-      console.error('Данные ошибки:', error.response?.data);
-      console.error('Полный ответ:', error.response);
+      console.error('Статус:', error);
+      console.error('Данные ошибки:', error);
+      console.error('Полный ответ:', error);
     }
-  
   }
 };
